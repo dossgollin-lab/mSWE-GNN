@@ -1,0 +1,10 @@
+*.ist
+*.pkl
+*.xyz
+*.txt
+*.pol
+*.nc
+__pycache__
+*.pyc
+lightning_logs
+wandb
