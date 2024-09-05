@@ -1,7 +1,7 @@
 # mSWE-GNN (Repository for paper "Multi-scale hydraulic graph neural networks for flood modelling")
 (Version 1.0 - Aug. 21th, 2024)
 
-![Architecture](./results/Architecture.png)
+![Architecture](Architecture.png)
 
 ## Overview
 
