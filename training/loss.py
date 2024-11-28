@@ -66,8 +66,8 @@ def get_multiscale_loss(diff, data, only_where_water=True, type_loss='RMSE', nod
         where_water = torch.ones(diff.shape[0]).bool()
     
     if isinstance(data, Batch):
-        multiscale_loss = torch.stack([get_mean_error(torch.cat([diff[data.node_ptr[i,0]:data.node_ptr[i,1]][where_water[node_ptr[i,0]:node_ptr[i,1]]] 
-                                                  for i in range(data.num_graphs)]), type_loss, nodes_dim)])
+        multiscale_loss = get_mean_error(torch.cat([diff[data.node_ptr[i,0]:data.node_ptr[i,1]][where_water[node_ptr[i,0]:node_ptr[i,1]]] 
+                                                    for i in range(data.num_graphs)]), type_loss, nodes_dim)
     else:
         multiscale_loss = get_mean_error(diff[node_ptr[0]:node_ptr[1]][where_water[node_ptr[0]:node_ptr[1]]], type_loss, nodes_dim)
         
