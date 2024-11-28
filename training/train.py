@@ -2,18 +2,17 @@
 import numpy as np
 import torch
 import torch.optim as optim
-import torch.nn as nn
 import lightning as L
 from lightning.pytorch.callbacks import Callback, BatchSizeFinder
 from torch_geometric.loader import DataLoader
 from torch_geometric.data.batch import Batch
 
-from training.loss import loss_function, conservation_loss
+from training.loss import loss_function
 from utils.miscellaneous import get_rollout_loss, get_CSI
 from utils.dataset import use_prediction, apply_boundary_condition
 
 def adapt_batch_training(batch):
-    """Corrects batch features so that there are also less if/else conditions later on"""
+    """Corrects batch features for multiscale batches and so that there are also less if/else conditions later on"""
     assert isinstance(batch, Batch), "This function requires a torch_geometric.data.batch.Batch object as input"
     temp = batch.clone()
     temp.node_BC = torch.cat([temp.ptr[i]+temp[i].node_BC for i in range(temp.num_graphs)])
@@ -58,9 +57,6 @@ def update_batch_multiscale(batch):
     edge_index = [torch.cat([batch.edge_index[:,j[0]:j[1]] for j in updated_batch_edge_ptr[:,i:i+2]], 1) for i in range(num_scales)]
     edge_attr = [torch.cat([batch.edge_attr[j[0]:j[1]] for j in updated_batch_edge_ptr[:,i:i+2]]) for i in range(num_scales)]
 
-    # node_features = [torch.cat([batch.x[j[0]:j[1]] for j in updated_batch_edge_ptr[:,i:i+2]]) for i in range(num_scales)]
-    # batch.x = torch.cat(node_features)
-    # batch.node_ptr = torch.LongTensor(np.cumsum([0] + [node.shape[0] for node in node_features]))
     batch.node_ptr = updated_batch_node_ptr
     batch.edge_index = torch.cat(edge_index, 1)
     batch.edge_attr = torch.cat(edge_attr)
@@ -103,13 +99,12 @@ class LightningTrainer(L.LightningModule):
         '''
         model: nn.Model
             e.g., GNN model
-        training_options: dict
-            curriculum_epoch: int 
-                every curriculum_epoch epochs the training window expands (default=0)
-            velocity_scaler: float
-                weight loss for velocity terms (default=1)
-            conservation: float
-                weight given to the mass conservation loss (default=0)
+        lr_info: dict
+            learning rate information
+        trainer_options: dict
+            trainer options
+        temporal_test_dataset_parameters: dict
+            temporal test dataset parameters
         '''
         super().__init__()
         # self.save_hyperparameters()

@@ -41,7 +41,7 @@ temporal_dataset_parameters:
 # Models hyperparameters
 models:
   model_type              : 'MSGNN'
-  hid_features            : 16
+  hid_features            : 64
   mlp_layers              : 3
   seed                    : 666
   learned_residuals       : True
@@ -52,7 +52,7 @@ models:
   with_filter_matrix      : True
   with_gradient           : True
   with_WL                 : True
-  K                       : 2
+  K                       : 4
   # MSGNN parameters
   learned_pooling         : False
   skip_connections        : True
@@ -78,4 +78,4 @@ lr_info:
 #   time_start  : 1
 #   time_stop   : -1
 
-saved_model: 'results/Pareto_front/models/K2_F16.h5' # specify the model to be tested 
+saved_model: 'results/Pareto_front/models/K4_F64.h5' # specify the model to be tested 

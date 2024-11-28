@@ -74,5 +74,5 @@ lr_info:
   gamma           : 0.7
   step_size       : 20
 
-saved_model: 'results/Pareto_front/models/K4_F64.h5' # specify the model to be loaded 
-# saved_model: 'results/finetuned_dk15.h5' # specify the model to be loaded
+# saved_model: 'results/Pareto_front/models/K4_F64.h5' # specify the model to be loaded 
+saved_model: 'results/finetuned_dk15.h5' # specify the model to be loaded

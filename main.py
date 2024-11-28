@@ -1,7 +1,6 @@
 # Libraries
 import torch
 import wandb
-import PIL, cv2
 import time
 import matplotlib.pyplot as plt
 import lightning as L
@@ -189,6 +188,7 @@ if __name__ == '__main__':
 
     wandb_logger = WandbLogger(
         log_model=True,
+        # mode='disabled',
         config=cfg)
 
     fix_dict_in_config(wandb)

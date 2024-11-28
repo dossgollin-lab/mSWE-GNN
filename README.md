@@ -1,5 +1,5 @@
 # mSWE-GNN (Repository for paper "Multi-scale hydraulic graph neural networks for flood modelling")
-(Version 1.0 - Aug. 21th, 2024)
+(Version 1.1 - Nov. 28th, 2024)
 
 ![Architecture](Architecture.png)
 
@@ -8,8 +8,11 @@
 For reproducing the paper's results, explore **plot_results.ipynb**
 
 For training the model run **main.py**
+
 For training and exploring the model, run **main.ipynb**
+
 For testing a model, run **test_model.py**
+
 Both **main.py** and **main.ipynb** use a **config.yaml** as reference configuration file.
 
 The repository is divided in the following folders:

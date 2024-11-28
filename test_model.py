@@ -58,7 +58,6 @@ def main(config):
         **model_parameters).to(device)
 
     trainer_options = config.trainer_options
-    type_loss = trainer_options['type_loss']
     lr_info = config['lr_info']
 
     # info for testing dataset
@@ -92,7 +91,7 @@ def main(config):
     spatial_analyser = SpatialAnalysis(predicted_rollout, prediction_times, 
                                    test_dataset, **temporal_test_dataset_parameters)
     
-    rollout_loss = spatial_analyser._get_rollout_loss(type_loss=type_loss)
+    rollout_loss = spatial_analyser._get_rollout_loss(type_loss='MAE')
     model_times = spatial_analyser.prediction_times
                                         
     print('test roll loss WD:',rollout_loss.mean(0)[0].item())
