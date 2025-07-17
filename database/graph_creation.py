@@ -2083,7 +2083,7 @@ def create_mesh_dataset(
         hydrograph_file = os.path.join(
             dataset_folder, "Hydrograph", f"Hydrograph_{i}.txt"
         )
-        polygon_file = os.path.join(dataset_folder, "Geometry", f"Polygon_{i}.pol")
+        polygon_file = os.path.join(dataset_folder, "Geometry", f"polygon_{i}.pol")
         BC = np.loadtxt(hydrograph_file)
         BC[:, 0] /= 60  # convert to minutes
 

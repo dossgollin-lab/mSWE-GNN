@@ -2,10 +2,10 @@
 dataset_parameters:
   dataset_folder    : 'database/datasets'
   temporal_res      : 120
-  train_dataset_name: 'multiscale_mesh_dataset'
+  train_dataset_name: 'multiscale_mesh_dataset2'
   train_size        : 80
   val_prcnt         : 0.25
-  test_dataset_name : 'multiscale_mesh_dataset'
+  test_dataset_name : 'multiscale_mesh_dataset2'
   seed              : 381
 
 # Scaler options: null, 'minmax', 'minmax_neg', or 'standard'
@@ -78,4 +78,4 @@ lr_info:
 #   time_start  : 1
 #   time_stop   : -1
 
-saved_model: 'results/Pareto_front/models/K4_F64.h5' # specify the model to be tested 
+saved_model: 'results/Pareto_front/models/K4_F64.h5' # specify the model to be tested

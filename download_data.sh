@@ -19,7 +19,7 @@ mkdir -p "${TARGET_DIR}"
 
 echo "--- Fetching all download URLs from Zenodo API ---"
 # Use wget, grep, and cut to find all "self" links, which are the download URLs.
-DOWNLOAD_URLS=$(wget -qO- "${API_URL}" | grep -o '"self": "[^"]*content"' | cut -d '"' -f 4)
+DOWNLOAD_URLS=$(wget -4 -c -qO- "${API_URL}" | grep -o '"self": "[^"]*content"' | cut -d '"' -f 4)
 
 # Check if any URLs were found
 if [ -z "${DOWNLOAD_URLS}" ]; then
