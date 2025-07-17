@@ -8,10 +8,6 @@ set -euo pipefail
 # Define the name of the virtual environment directory
 VENV_NAME="mswe-gnn-venv"
 
-echo "--- Loading required HPC modules ---"
-# Ensure the correct CUDA module is loaded for PyTorch
-module load cuda/12.6
-
 echo "--- Creating Python virtual environment: ${VENV_NAME} ---"
 # Create the virtual environment
 python3 -m venv ${VENV_NAME}
