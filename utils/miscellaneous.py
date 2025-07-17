@@ -68,7 +68,7 @@ def WD_to_FAT(WD, temporal_res, water_threshold=0, time_start=0):
     return FAT_hours
 
 def get_numerical_times(dataset_name, dataset_size, temporal_res, maximum_time,
-                        overview_file='database/raw_datasets/overview.csv',
+                        overview_file=os.path.join('database', 'raw_datasets', 'overview.csv'),
                         **temporal_test_dataset_parameters):
 
     time_start = temporal_test_dataset_parameters['time_start']

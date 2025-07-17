@@ -266,9 +266,9 @@ def from_output_nc_to_txt(output_map, save_folder, seed):
     velocity_y = nc_dataset['Mesh2d_ucy'].data
     
     #saving water depth and velocities
-    np.savetxt(f'{save_folder}/WD/WD_{seed}.txt', waterdepth, fmt='%1.4f')
-    np.savetxt(f'{save_folder}/VX/VX_{seed}.txt', velocity_x, fmt='%1.4f')
-    np.savetxt(f'{save_folder}/VY/VY_{seed}.txt', velocity_y, fmt='%1.4f')
+    np.savetxt(os.path.join(save_folder, 'WD', f'WD_{seed}.txt'), waterdepth, fmt='%1.4f')
+    np.savetxt(os.path.join(save_folder, 'VX', f'VX_{seed}.txt'), velocity_x, fmt='%1.4f')
+    np.savetxt(os.path.join(save_folder, 'VY', f'VY_{seed}.txt'), velocity_y, fmt='%1.4f')
 
     return None
 

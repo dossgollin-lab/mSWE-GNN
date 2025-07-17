@@ -1,0 +1,31 @@
+name: mswe-gnn
+channels:
+  - conda-forge
+  - pytorch
+  - pyg
+dependencies:
+  - python>=3.9
+  - fiona
+  - ipykernel
+  - nbformat
+  - lightning
+  - mamba
+  - matplotlib
+  - netcdf4
+  - networkx
+  - numpy
+  - pandas
+  - pytorch
+  - pyyaml
+  - scikit-learn
+  - scipy
+  - shapely
+  - torch-geometric
+  - tqdm
+  - wandb
+  - xarray
+  - pip
+  - pip:
+      - triangle
+      - perlin-noise
+      - meshkernel
