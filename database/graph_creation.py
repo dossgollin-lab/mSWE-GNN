@@ -492,7 +492,6 @@ def plot_multiscale_mesh_properties(meshes, with_area=True, **kwargs):
     fig.suptitle("Mesh faces properties", fontsize=16)
 
     for i, mesh in enumerate(meshes):
-
         if with_area:
             ax0 = axs[0, i] if number_of_multiscales > 1 else axs[0]
             ax1 = axs[1, i] if number_of_multiscales > 1 else axs[1]
