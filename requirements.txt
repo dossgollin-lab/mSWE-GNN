@@ -22,4 +22,6 @@ torch_geometric==2.6.1
 tqdm==4.67.1
 xarray==2025.1.2
 fiona
+wandb
 rasterio
+triangle

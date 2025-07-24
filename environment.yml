@@ -28,4 +28,4 @@ dependencies:
   - pip:
       - triangle
       - perlin-noise
-      - meshkernel
+      - meshkernel==3.0.0
