@@ -78,4 +78,5 @@ lr_info:
 #   time_start  : 1
 #   time_stop   : -1
 
+resume: 'auto' # & must & allow & never
 saved_model: 'results/Pareto_front/models/K4_F64.h5' # specify the model to be tested
