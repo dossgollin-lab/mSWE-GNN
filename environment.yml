@@ -1,4 +1,4 @@
-name: mswe-gnn
+name: mswe-gnn-env
 channels:
   - conda-forge
   - pytorch

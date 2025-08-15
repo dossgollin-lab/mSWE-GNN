@@ -32,4 +32,30 @@ These instructions currently target the DesignSafe allocation to TACC, but can b
     1. Run [`create_dataset.ipynb`](./database/create_dataset.ipynb) to create the training data.
 4. Open [`main.ipynb`](./main.ipynb) and run
 
+## Getting started with Thunder Computer
+
+1. Basic action for Thunder Computer with API through CLI: tnr create, tnr status, tnr start ..., tnr connect ..., tnr stop .... 
+2. Clone from Github:
+   1. cd /workspace 
+   2. git clone https://github.com/dossgollin-lab/mSWE-GNN.git
+   3. cd mSWE-GNN # needed when reconnecting
+3. Create the environment and notebook:
+   1. python -m pip install --upgrade pip
+   2. pip install jupyter papermill nbconvert
+   3. pip install -r requirements.txt
+4. Install unzip:
+   1. sudo apt update 
+   2. sudo apt install unzip -y
+5. Run mSWE-GNN:
+   1. mkdir -p outputs logs
+   2. Download data: \
+   bash download_data.sh
+   3. wandb API: \
+   export WANDB_API_KEY="***"
+   4. Dataset creation: \
+   papermill database/create_dataset.ipynb \ \
+          database/create_dataset_out.ipynb \ \
+          -k python3 \ \
+          --log-output 2>&1 | tee -a logs/create_dataset.log
+
 This is research code, modified by us who are not the original developers (though we will contribute back to their repository) so please use this model carefully!
