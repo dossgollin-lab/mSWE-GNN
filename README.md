@@ -34,7 +34,7 @@ These instructions currently target the DesignSafe allocation to TACC, but can b
 
 ## Getting started with Thunder Computer
 
-1. Basic action for Thunder Computer with API through CLI: tnr create, tnr status, tnr start ..., tnr connect ..., tnr stop .... 
+1. Basic action for Thunder Computer with API through CLI: tnr create, tnr status, tnr start ***, tnr connect ***, tnr stop ***.
 2. Clone from Github:
    1. cd /workspace 
    2. git clone https://github.com/dossgollin-lab/mSWE-GNN.git
@@ -56,6 +56,17 @@ These instructions currently target the DesignSafe allocation to TACC, but can b
    papermill database/create_dataset.ipynb \ \
           database/create_dataset_out.ipynb \ \
           -k python3 \ \
+          --cwd database \ \
           --log-output 2>&1 | tee -a logs/create_dataset.log
+   5. Wandb API: \
+   export WANDB_API_KEY=02d765e5424d9c6370a21314cf1e0b75d22c22a4
+   6. Run main: \
+   papermill main.ipynb \ \
+          main_out.ipynb \ \
+          -k python3 \ \
+          --cwd . \ \
+          --log-output 2>&1 | tee -a logs/train.log
+   7. Download output: \
+   tnr scp 0:/workspace/mSWE-GNN ./mSWE-GNN_run
 
 This is research code, modified by us who are not the original developers (though we will contribute back to their repository) so please use this model carefully!
